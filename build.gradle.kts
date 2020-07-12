@@ -10,6 +10,9 @@ plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
 
+    // Collapsing all dependencies and project code into a single Jar file
+    id("com.github.johnrengelman.shadow") version "6.0.0"
+
     // Apply the application plugin to add support for building a CLI application.
     application
 }
@@ -36,6 +39,9 @@ dependencies {
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-apache:$ktorVersion")
     implementation("io.ktor:ktor-client-serialization-jvm:$ktorVersion")
+
+    // AWS dependencies
+    implementation("com.amazonaws:aws-lambda-java-core:1.2.0")
 
     // Kotlin test library and JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test")

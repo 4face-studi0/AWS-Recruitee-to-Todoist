@@ -3,13 +3,16 @@
  */
 package studio.forface.recruiteetodoist
 
+import com.amazonaws.services.lambda.runtime.Context
+import com.amazonaws.services.lambda.runtime.RequestHandler
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import studio.forface.recruiteetodoist.domain.usecase.GetUpcomingInterviews
 import studio.forface.recruiteetodoist.domain.usecase.PostInterviewTask
 
-class App(
+open class App(
     val getUpcomingInterviews: GetUpcomingInterviews = GetUpcomingInterviews(),
     val postInterviewTask: PostInterviewTask = PostInterviewTask()
 ) {
@@ -23,8 +26,26 @@ class App(
     }
 }
 
+class AwsApp : App(), RequestHandler<EmptyHandler, String> {
+
+    override fun handleRequest(input: EmptyHandler, context: Context): String {
+        var result = ""
+
+        runBlocking {
+            result = try {
+                syncInterviews()
+                "success"
+            } catch (t: Throwable) {
+                "failure: ${t.message}"
+            }
+        }
+
+        return result
+    }
+}
+
 suspend fun main(args: Array<String>) {
-    val app = App()
+    val app = AwsApp()
 
     app.syncInterviews()
 }
