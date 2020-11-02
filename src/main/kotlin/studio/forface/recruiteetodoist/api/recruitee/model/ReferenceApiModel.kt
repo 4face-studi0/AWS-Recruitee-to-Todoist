@@ -41,17 +41,17 @@ sealed class ReferenceApiModel {
     ) : ReferenceApiModel()
 
 //    @SerialName("email")
-//    val email: String, // marija@protonmail.com
+//    val email: String, // something@protonmail.com
 //    @SerialName("first_name")
-//    val firstName: String, // Marija
+//    val firstName: String, // Name
 //    @SerialName("id")
 //    val id: Int, // 80432
 //    @SerialName("last_name")
-//    val lastName: String, // Ristova
+//    val lastName: String, // Surname
 //    @SerialName("photo_normal_url")
-//    val photoNormalUrl: String, // https://recruitee-main.s3.eu-central-1.amazonaws.com/admins/80432/normal_avatar_1551949394.png
+//    val photoNormalUrl: String, // https://recruitee-main.s3.eu-central-1.amazonaws.com/admins/80432/normal_avatar_123.png
 //    @SerialName("photo_thumb_url")
-//    val photoThumbUrl: String, // https://recruitee-main.s3.eu-central-1.amazonaws.com/admins/80432/thumb_avatar_1551949394.png
+//    val photoThumbUrl: String, // https://recruitee-main.s3.eu-central-1.amazonaws.com/admins/80432/thumb_avatar_123.png
 //    @SerialName("time_format24")
 //    val timeFormat24: Boolean, // true
 //    @SerialName("timezone")
@@ -69,7 +69,7 @@ sealed class ReferenceApiModel {
 //    @SerialName("last_message_at")
 //    val lastMessageAt: Any, // null
 //    @SerialName("name")
-//    val name: String, // Marc Gilbert
+//    val name: String, // Name Surname
 //    @SerialName("notes_count")
 //    val notesCount: Int, // 4
 //    @SerialName("pending_result_request")
